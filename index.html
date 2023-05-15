@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ABM - TP Carrito</title>
+</head>
+
+<body>
+    <h1 id="titulo">Concesionaria VolksWagen</h1>
+
+    <div id="productos">
+        <div class="producto">
+            <img src="beetle.png" class="img-producto">
+            <h4 class="modelo">Beetle GTI</h4>
+            <p>$ <span class="precio">30000</span></p>
+            <button id=1 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="golf.png" class="img-producto">
+            <h4 class="modelo">Golf GTI</h4>
+            <p>$ <span class="precio">40000</span></p>
+            <button id=2 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="rocco.png" class="img-producto">
+            <h4 class="modelo">Sirocco GTS</h4>
+            <p>$ <span class="precio">45000</span></p>
+            <button id=3 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="vento.png" class="img-producto">
+            <h4 class="modelo">Vento GLI</h4>
+            <p>$ <span class="precio">25000</span></p>
+            <button id=4 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="passat.png" class="img-producto">
+            <h4 class="modelo">Passat</h4>
+            <p>$ <span class="precio">50000</span></p>
+            <button id=5 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+
+        <div class="producto">
+            <img src="touareg.png" class="img-producto">
+            <h4 class="modelo">Touareg V8</h4>
+            <p>$ <span class="precio">80000</span></p>
+            <button id=6 class="boton-agregar" onclick="agregarItem(id)">Agregar</button>
+        </div>
+    </div>
+
+    <div id="carrito">
+        <div id="carrito-header">
+            <h3 class="carrito-header-info">Descripción</h3>
+            <h3 class="carrito-header-info">Precio</h3>
+            <h3 class="carrito-header-info">Cantidad</h3>
+        </div>
+        <div id="carrito-body">
+
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
