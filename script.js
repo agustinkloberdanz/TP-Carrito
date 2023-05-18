@@ -97,8 +97,6 @@ function actualizarCarrito() {
     })
 
     if (arrCarrito.length > 0) {
-        carrito.style.display = 'block'
-
         var subtotal = calcularTotal()
         var total = document.createElement('h3')
         total.innerHTML = 'Total a pagar: $' + subtotal
@@ -157,4 +155,16 @@ function eliminarDelCarrito(prod) {
 function vaciarCarrito() {
     arrCarrito.length = 0
     actualizarCarrito()
+}
+
+function ocultarCarrito(){
+    carrito.style.display = 'none'
+    var button = document.getElementById('carrito-interactuar')
+    button.addEventListener('click', () => mostrarCarrito())
+}
+
+function mostrarCarrito(){
+    carrito.style.display = 'block'
+    var button = document.getElementById('carrito-interactuar')
+    button.addEventListener('click', () => ocultarCarrito())
 }
