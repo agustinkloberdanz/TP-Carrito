@@ -1,9 +1,10 @@
 class Producto {
-    constructor(id, descripcion, precio, cantidad) {
+    constructor(id, descripcion, precio, cantidad, imagen) {
         this.id = null
         this.descripcion = descripcion
         this.precio = precio
         this.cantidad = 0
+        this.imagen = imagen
     }
 }
 
@@ -25,14 +26,17 @@ function agregarItem(id) {
         var element = document.getElementById(id)
         var parent = element.parentElement
 
+        var img = parent.querySelector('.img-producto')
         var descripcion = parent.querySelector('.modelo')
         var precio = parent.querySelector('.precio')
 
         producto.id = id
+        producto.imagen = img.getAttribute('src')
         producto.descripcion = descripcion.innerHTML
         producto.precio = precio.innerHTML
         producto.cantidad++
 
+        console.log(producto)
         arrCarrito.push(producto)
         actualizarCarrito()
     }
@@ -44,6 +48,7 @@ function actualizarCarrito() {
 
     arrCarrito.forEach(prod => {
         var div = document.createElement('div')
+        var img = document.createElement('img')
         var desc = document.createElement('p')
         var precio = document.createElement('p')
         var cant = document.createElement('p')
@@ -54,6 +59,7 @@ function actualizarCarrito() {
         desc.innerHTML = prod.descripcion
         precio.innerHTML = prod.precio
         cant.innerHTML = prod.cantidad
+        img.src = prod.imagen
 
         buttonDescontar.innerHTML = '-'
         buttonAgregar.innerHTML = '+'
@@ -62,6 +68,7 @@ function actualizarCarrito() {
         i.setAttribute('class', 'fa fa-trash-o')
         buttonEliminar.appendChild(i)
 
+        img.setAttribute('class', 'img-producto-en-carrito')
         desc.setAttribute('class', 'prodinfo-en-carrito')
         precio.setAttribute('class', 'prodinfo-en-carrito')
         cant.setAttribute('class', 'prodinfo-en-carrito')
@@ -81,6 +88,7 @@ function actualizarCarrito() {
         div.appendChild(desc)
         div.appendChild(precio)
         div.appendChild(cant)
+        div.appendChild(img)
         div.appendChild(buttonDescontar)
         div.appendChild(buttonAgregar)
         div.appendChild(buttonEliminar)

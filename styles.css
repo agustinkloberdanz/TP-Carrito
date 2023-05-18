@@ -67,6 +67,19 @@ body {
     font-size: 20px;
 }
 
-button{
+button {
     border-radius: 30px;
+}
+
+.img-producto-en-carrito {
+    border-radius: 30px;
+    width: 200px;
+    height: 100px;
+    transition: 1s;
+}
+
+.img-producto-en-carrito:hover {
+    width: 250px;
+    height: 150px;
+    transition: 1s;
 }
