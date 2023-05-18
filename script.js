@@ -9,6 +9,8 @@ class Producto {
 }
 
 let arrCarrito = []
+let carritoBody = document.getElementById('carrito-body')
+let carrito = document.getElementById('carrito')
 
 function agregarItem(id) {
     const existe = arrCarrito.some(element => element.id == id)
@@ -36,15 +38,13 @@ function agregarItem(id) {
         producto.precio = precio.innerHTML
         producto.cantidad++
 
-        console.log(producto)
         arrCarrito.push(producto)
         actualizarCarrito()
     }
 }
 
 function actualizarCarrito() {
-    var carrito = document.getElementById('carrito-body')
-    carrito.innerHTML = ""
+    carritoBody.innerHTML = ""
 
     arrCarrito.forEach(prod => {
         var div = document.createElement('div')
@@ -63,7 +63,7 @@ function actualizarCarrito() {
 
         buttonDescontar.innerHTML = '-'
         buttonAgregar.innerHTML = '+'
-        
+
         var i = document.createElement('i')
         i.setAttribute('class', 'fa fa-trash-o')
         buttonEliminar.appendChild(i)
@@ -93,10 +93,12 @@ function actualizarCarrito() {
         div.appendChild(buttonAgregar)
         div.appendChild(buttonEliminar)
 
-        carrito.appendChild(div)
+        carritoBody.appendChild(div)
     })
 
     if (arrCarrito.length > 0) {
+        carrito.style.display = 'block'
+
         var subtotal = calcularTotal()
         var total = document.createElement('h3')
         total.innerHTML = 'Total a pagar: $' + subtotal
@@ -111,13 +113,16 @@ function actualizarCarrito() {
         pagarButton.setAttribute('class', 'boton-pagar')
         pagarButton.addEventListener('click', () => pagarTotal())
 
-        carrito.appendChild(total)
-        carrito.appendChild(pagarButton)
-        carrito.appendChild(vaciarButton)
+        carritoBody.appendChild(total)
+        carritoBody.appendChild(pagarButton)
+        carritoBody.appendChild(vaciarButton)
+    }
+    else{
+        carrito.style.display = 'none'
     }
 }
 
-function pagarTotal(){
+function pagarTotal() {
     prompt('Número de tarjeta: ')
 }
 
@@ -142,7 +147,7 @@ function agregarUnElemento(prod) {
     actualizarCarrito()
 }
 
-function eliminarDelCarrito(prod){
+function eliminarDelCarrito(prod) {
     const item = arrCarrito.find((element) => element.id == prod.id)
     const indice = arrCarrito.indexOf(item)
     arrCarrito.splice(indice, 1)
